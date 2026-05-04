@@ -33,14 +33,13 @@ jobs:
           commit_message: "Sync live election data [skip ci]"
           file_pattern: 'data.js'
 
-      # --- THESE STEPS FIX THE 404 ERROR ---
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'  # Uploads everything in the root folder
+          path: '.'
 
       - name: Deploy to GitHub Pages
         id: deployment
