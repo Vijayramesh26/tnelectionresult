@@ -106,7 +106,12 @@
     </div>
 
     <script src="https://d3js.org/d3.v7.min.js"></script>
-    <script src="data.js"></script>
+    <script>
+        // Force fresh data on every reload to prevent browser caching
+        const dataScript = document.createElement('script');
+        dataScript.src = 'data.js?v=' + Date.now();
+        document.head.appendChild(dataScript);
+    </script>
     <script src="map_data.js"></script>
     <script src="constituencies.js"></script>
     <script src="app.js"></script>
