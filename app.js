@@ -265,4 +265,13 @@ function startCountdown() {
     }, 1000);
 }
 
-init();
+// Wait for the dynamically loaded data to be ready
+function startApp() {
+    if (typeof ELECTION_DATA !== 'undefined') {
+        init();
+    } else {
+        setTimeout(startApp, 50); // Check again in 50ms
+    }
+}
+
+startApp();
