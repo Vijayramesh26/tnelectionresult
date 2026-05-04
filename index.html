@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tamil Nadu Election 2026 Dashboard | Live Results</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Fallback for FontAwesome icons if script not loaded */
+        .fa-search::before { content: "🔍"; }
+        .fa-chart-pie::before { content: "📊"; }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <h1>Tamil Nadu Election 2026</h1>
+                <div class="live-indicator">
+                    <div class="live-dot"></div>
+                    LIVE RESULTS
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="refresh-info">
+                    <div id="lastUpdated">-</div>
+                    <div id="refreshTimer">Refreshing in 30s</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Top Party Cards -->
+        <section id="topPartyCards" class="party-cards-container">
+            <!-- Cards like TVK, ADMK, DMK will be injected here -->
+        </section>
+
+        <!-- Main Results Section -->
+        <div class="results-grid">
+            <!-- Left: Party Wise Table -->
+            <div class="results-card table-section">
+                <div class="section-header">Party Wise Results</div>
+                <div class="table-wrapper">
+                    <table id="partyTable">
+                        <thead>
+                            <tr>
+                                <th>Party</th>
+                                <th>Won</th>
+                                <th>Leading</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tallyList">
+                            <!-- Table rows injected here -->
+                        </tbody>
+                        <tfoot>
+                            <tr id="tableTotalRow">
+                                <td>Total</td>
+                                <td id="totalWon">0</td>
+                                <td id="totalLeading">0</td>
+                                <td id="totalTotal">0</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Right: Map Section -->
+            <div class="results-card map-section">
+                <div class="section-header">
+                    <span>Constituency Wise Results</span>
+                    <select id="constituencySelect" class="const-select">
+                        <option value="">Select Constituency</option>
+                    </select>
+                </div>
+                <div id="mapContainer" class="map-container">
+                    <!-- SVG Map -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Constituency Details Grid (Optional/Below) -->
+        <section class="details-section">
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="searchInput" class="search-input" placeholder="Search constituency name or ID...">
+            </div>
+            <div id="constituencyGrid" class="constituency-grid">
+                <!-- Cards -->
+            </div>
+        </section>
+    </div>
+
+    <!-- Modal for Details -->
+    <div id="detailModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <div id="modalBody">
+                <!-- Details injected here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="data.js"></script>
+    <script src="map_data.js"></script>
+    <script src="constituencies.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
